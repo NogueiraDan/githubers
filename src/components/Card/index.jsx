@@ -86,7 +86,7 @@ export default function App() {
         </div>
       </div>
 
-    <h3>Repositorios deste usuário</h3>
+   
     <Repos repos={userRepos}/>
     </div>
   );

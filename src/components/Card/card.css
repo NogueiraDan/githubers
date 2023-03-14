@@ -1,7 +1,7 @@
 
 .cardContainer{
     /* align-items: center; */
-    width: 80%;
+    width: 90%;
     height: 70vh;
     display: flex;
     border-radius: 15px;
@@ -27,7 +27,7 @@
 }
 
 .cardSearch #search{
-    width: 80%;
+    width: 60%;
     height: 50px;
     border-radius: 10px;
     border:0;
@@ -55,13 +55,14 @@
     padding: 10px; 
     margin: 20px 0;
     display: flex;
+    justify-content: space-around;
+    /* background-color: red;; */
     color: white;
 
 }
 .cardData .avatarUser{
     width: 25%;
-    padding-left: 50px;
-
+    padding-left: 150px;
 }
 
 .cardContainer .avatarUser #imgUser{
@@ -81,7 +82,7 @@
 
 
 .userInfo{
-    width: 80%;
+    width: 60%;
     font-size: 20px;
 }
 
