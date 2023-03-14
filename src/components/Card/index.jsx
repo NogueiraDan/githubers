@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import Repos from "../Repos"
 import axios from 'axios';
 import "./card.css";
 
 export default function App() {
   const [input, setInput] = useState();
   const [user, setUser] = useState('');
+  const [userRepos, setUserRepos] = useState();
+
+
 
   const handleShow = () => {
 
@@ -13,6 +17,13 @@ export default function App() {
         console.log(res.data)
         setUser(res.data)
     })
+    .then(
+      axios.get(`https://api.github.com/users/${input}/repos`)
+      .then((res)=>{
+        setUserRepos(res.data)
+        console.log(userRepos)
+      })
+    )
     .catch(()=>{
       alert('Usuário não encontrado')
     })
@@ -68,13 +79,15 @@ export default function App() {
         <div className="userInfo">
         <span>{user.name}  (<a href={user.html_url} target="_blank">{user.login}</a>)</span><br/>
         <span>Bio: {user.bio}</span><br/>
+        
         <span>Local: {user.location}</span><br/>
         <span>Seguidores: {user.followers}</span><br/>
         <span>Seguindo: {user.following}</span><br/>
         </div>
-        
-       
       </div>
+
+    <h3>Repositorios deste usuário</h3>
+    <Repos repos={userRepos}/>
     </div>
   );
 }
